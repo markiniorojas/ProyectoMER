@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+	<!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+	<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+		<!-- Diagram content (shape and connector positions) -->
+		<edmx:Diagrams>
+			<Diagram DiagramId="13ebca2c884c42be81e210dc7f583e81" Name="Diagram1" ZoomLevel="72" >
+				<EntityTypeShape EntityType="Model1.Rol" Width="1.5" PointX="17.625" PointY="10.125" FillColor="Green" />
+				<EntityTypeShape EntityType="Model1.User" Width="1.5" PointX="20.375" PointY="7.75" IsExpanded="true" FillColor="Green" />
+				<EntityTypeShape EntityType="Model1.Permission" Width="1.5" PointX="14.75" PointY="12.375" IsExpanded="true" FillColor="Green" />
+				<EntityTypeShape EntityType="Model1.Form" Width="1.5" PointX="17.625" PointY="14.75" FillColor="Green" />
+				<EntityTypeShape EntityType="Model1.ModuleForm" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" FillColor="Green" />
+				<EntityTypeShape EntityType="Model1.Module" Width="1.5" PointX="17.625" PointY="17.375" FillColor="Green" />
+				<EntityTypeShape EntityType="Model1.Log" Width="1.5" PointX="28.375" PointY="7.875" IsExpanded="true" />
+				<EntityTypeShape EntityType="Model1.Certificate" Width="1.5" PointX="23.375" PointY="7.625" />
+				<AssociationConnector Association="Model1.CertificateUser" />
+				<EntityTypeShape EntityType="Model1.Paremeter" Width="1.5" PointX="28.375" PointY="11.125" />
+				<EntityTypeShape EntityType="Model1.RolFormPermission" Width="1.5" PointX="17.625" PointY="12.5" IsExpanded="true" FillColor="Green" />
+				<AssociationConnector Association="Model1.RolPermissionRol" />
+				<AssociationConnector Association="Model1.RolPermissionPermission" />
+				<AssociationConnector Association="Model1.ModuleFormModule" />
+				<AssociationConnector Association="Model1.FormModuleForm" />
+				<EntityTypeShape EntityType="Model1.Establishment" Width="1.5" PointX="26" PointY="10.5" />
+				<EntityTypeShape EntityType="Model1.TypeEstablishment" Width="1.5" PointX="26" PointY="7.625" />
+				<EntityTypeShape EntityType="Model1.Debt" Width="1.5" PointX="20.375" PointY="12" />
+				<AssociationConnector Association="Model1.DebtUser" />
+				<AssociationConnector Association="Model1.DebtEstablishment" ></AssociationConnector>
+				<EntityTypeShape EntityType="Model1.Rent" Width="1.5" PointX="23.375" PointY="10.25" />
+				<AssociationConnector Association="Model1.EstablishmentTypeEstablishment" />
+				<EntityTypeShape EntityType="Model1.Payment" Width="1.5" PointX="23.375" PointY="18.875" />
+				<EntityTypeShape EntityType="Model1.DebtBill" Width="1.5" PointX="20.375" PointY="16" />
+				<EntityTypeShape EntityType="Model1.Bill" Width="1.5" PointX="20.375" PointY="18.375" />
+				<AssociationConnector Association="Model1.DebtBillBill" />
+				<AssociationConnector Association="Model1.DebtBillDebt" />
+				<AssociationConnector Association="Model1.DebtPayment" />
+				<AssociationConnector Association="Model1.UserContract" />
+				<AssociationConnector Association="Model1.RentEstablishment" />
+				<EntityTypeShape EntityType="Model1.RolUser" Width="1.5" PointX="17.625" PointY="8.125" FillColor="Green" />
+				<AssociationConnector Association="Model1.RolUserRol" />
+				<AssociationConnector Association="Model1.RolUserUser" />
+				<AssociationConnector Association="Model1.RolFormPermissionForm" />
+				<EntityTypeShape EntityType="Model1.Statement" Width="1.5" PointX="26" PointY="14.125" IsExpanded="true" />
+				<EntityTypeShape EntityType="Model1.Calculation" Width="1.5" PointX="28.375" PointY="13.875" />
+				<EntityTypeShape EntityType="Model1.StatementDetail" Width="1.5" PointX="23.375" PointY="14" IsExpanded="true" />
+				<AssociationConnector Association="Model1.StatementDetailStatement" />
+				<AssociationConnector Association="Model1.StatementDetailPayment" />
+				<AssociationConnector Association="Model1.StatementDetailDebt" />
+				<AssociationConnector Association="Model1.StatementDetailEstablishment" />
+				<AssociationConnector Association="Model1.StatementDetailRent" />
+        <EntityTypeShape EntityType="Model1.Person" Width="1.5" PointX="14.875" PointY="8" FillColor="ForestGreen" />
+        <AssociationConnector Association="Model1.UserPerson" />
+        <EntityTypeShape EntityType="Model1.Company" Width="1.5" PointX="31.75" PointY="13.625" FillColor="128, 128, 255" />
+        <EntityTypeShape EntityType="Model1.PaymentMethod" Width="1.5" PointX="31.75" PointY="10.625" FillColor="128, 128, 255" />
+        <EntityTypeShape EntityType="Model1.Notification" Width="1.5" PointX="31.75" PointY="7.75" FillColor="128, 128, 255" />
+			</Diagram>
+		</edmx:Diagrams>
+	</edmx:Designer>
+</edmx:Edmx>

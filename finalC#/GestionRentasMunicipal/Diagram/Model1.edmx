@@ -1,0 +1,1505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+	<!-- EF Runtime content -->
+	<edmx:Runtime>
+		<!-- SSDL content -->
+		<edmx:StorageModels>
+		<Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="Rols" EntityType="Model1.Store.Rols" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="Model1.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permissions" EntityType="Model1.Store.Permissions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Forms" EntityType="Model1.Store.Forms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ModuleForms" EntityType="Model1.Store.ModuleForms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Modules" EntityType="Model1.Store.Modules" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Logs" EntityType="Model1.Store.Logs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CertificateSet" EntityType="Model1.Store.CertificateSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Paremeters" EntityType="Model1.Store.Paremeters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RolFormPermissionSet" EntityType="Model1.Store.RolFormPermissionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Establishments" EntityType="Model1.Store.Establishments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeEstablishments" EntityType="Model1.Store.TypeEstablishments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Debts" EntityType="Model1.Store.Debts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contracts" EntityType="Model1.Store.Contracts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Payments" EntityType="Model1.Store.Payments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DebtBills" EntityType="Model1.Store.DebtBills" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bills" EntityType="Model1.Store.Bills" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RolUsers" EntityType="Model1.Store.RolUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Statements" EntityType="Model1.Store.Statements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Calculations" EntityType="Model1.Store.Calculations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StatementDetailSet" EntityType="Model1.Store.StatementDetailSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CertificateUser" Association="Model1.Store.CertificateUser">
+      <End Role="Certificate" EntitySet="CertificateSet" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="RolPermissionRol" Association="Model1.Store.RolPermissionRol">
+      <End Role="RolPermission" EntitySet="RolFormPermissionSet" />
+      <End Role="Rol" EntitySet="Rols" />
+    </AssociationSet>
+    <AssociationSet Name="RolPermissionPermission" Association="Model1.Store.RolPermissionPermission">
+      <End Role="RolPermission" EntitySet="RolFormPermissionSet" />
+      <End Role="Permission" EntitySet="Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="ModuleFormModule" Association="Model1.Store.ModuleFormModule">
+      <End Role="ModuleForm" EntitySet="ModuleForms" />
+      <End Role="Module" EntitySet="Modules" />
+    </AssociationSet>
+    <AssociationSet Name="FormModuleForm" Association="Model1.Store.FormModuleForm">
+      <End Role="ModuleForm" EntitySet="ModuleForms" />
+      <End Role="Form" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="DebtUser" Association="Model1.Store.DebtUser">
+      <End Role="Debt" EntitySet="Debts" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="DebtEstablishment" Association="Model1.Store.DebtEstablishment">
+      <End Role="Debt" EntitySet="Debts" />
+      <End Role="Establishment" EntitySet="Establishments" />
+    </AssociationSet>
+    <AssociationSet Name="EstablishmentTypeEstablishment" Association="Model1.Store.EstablishmentTypeEstablishment">
+      <End Role="Establishment" EntitySet="Establishments" />
+      <End Role="TypeEstablishment" EntitySet="TypeEstablishments" />
+    </AssociationSet>
+    <AssociationSet Name="DebtBillBill" Association="Model1.Store.DebtBillBill">
+      <End Role="DebtBill" EntitySet="DebtBills" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="DebtBillDebt" Association="Model1.Store.DebtBillDebt">
+      <End Role="DebtBill" EntitySet="DebtBills" />
+      <End Role="Debt" EntitySet="Debts" />
+    </AssociationSet>
+    <AssociationSet Name="DebtPayment" Association="Model1.Store.DebtPayment">
+      <End Role="Payment" EntitySet="Payments" />
+      <End Role="Debt" EntitySet="Debts" />
+    </AssociationSet>
+    <AssociationSet Name="UserContract" Association="Model1.Store.UserContract">
+      <End Role="Contract" EntitySet="Contracts" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="RentEstablishment" Association="Model1.Store.RentEstablishment">
+      <End Role="Rent" EntitySet="Contracts" />
+      <End Role="Establishment" EntitySet="Establishments" />
+    </AssociationSet>
+    <AssociationSet Name="RolUserRol" Association="Model1.Store.RolUserRol">
+      <End Role="RolUser" EntitySet="RolUsers" />
+      <End Role="Rol" EntitySet="Rols" />
+    </AssociationSet>
+    <AssociationSet Name="RolUserUser" Association="Model1.Store.RolUserUser">
+      <End Role="RolUser" EntitySet="RolUsers" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="RolFormPermissionForm" Association="Model1.Store.RolFormPermissionForm">
+      <End Role="RolFormPermission" EntitySet="RolFormPermissionSet" />
+      <End Role="Form" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="StatementDetailStatement" Association="Model1.Store.StatementDetailStatement">
+      <End Role="StatementDetail" EntitySet="StatementDetailSet" />
+      <End Role="Statement" EntitySet="Statements" />
+    </AssociationSet>
+    <AssociationSet Name="StatementDetailPayment" Association="Model1.Store.StatementDetailPayment">
+      <End Role="StatementDetail" EntitySet="StatementDetailSet" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="StatementDetailDebt" Association="Model1.Store.StatementDetailDebt">
+      <End Role="StatementDetail" EntitySet="StatementDetailSet" />
+      <End Role="Debt" EntitySet="Debts" />
+    </AssociationSet>
+    <AssociationSet Name="StatementDetailEstablishment" Association="Model1.Store.StatementDetailEstablishment">
+      <End Role="StatementDetail" EntitySet="StatementDetailSet" />
+      <End Role="Establishment" EntitySet="Establishments" />
+    </AssociationSet>
+    <AssociationSet Name="StatementDetailRent" Association="Model1.Store.StatementDetailRent">
+      <End Role="StatementDetail" EntitySet="StatementDetailSet" />
+      <End Role="Rent" EntitySet="Contracts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Rols">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Identification" Type="int" Nullable="false" />
+    <Property Name="Phone" Type="bigint" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permissions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Forms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModuleForms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleId_Id" Type="int" Nullable="false" />
+    <Property Name="FormId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Modules">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TableName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PropietyName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TimeStamp" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OldValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NewValue" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CertificateSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IssueDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+    <Property Name="UserId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paremeters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Value" Type="decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolFormPermissionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RolId_Id" Type="int" Nullable="false" />
+    <Property Name="PermissionId_Id" Type="int" Nullable="false" />
+    <Property Name="FormId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Establishments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nit" Type="int" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TypeEstablishmentId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeEstablishments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UVT" Type="decimal" Nullable="false" Precision="13" Scale="2" />
+    <Property Name="PaymentTime" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Debts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DebtDate" Type="datetime" Nullable="false" />
+    <Property Name="GrossValue" Type="decimal" Nullable="false" Precision="13" Scale="2" />
+    <Property Name="IvaValue" Type="decimal" Nullable="false" Precision="13" Scale="2" />
+    <Property Name="DebtTotal" Type="decimal" Nullable="false" Precision="13" Scale="2" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserId_Id" Type="int" Nullable="false" />
+    <Property Name="EstablishmentId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contracts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+    <Property Name="SocialReason" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="UserId_Id" Type="int" Nullable="false" />
+    <Property Name="EstablishmentId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentDate" Type="datetime" Nullable="false" />
+    <Property Name="AmountPaid" Type="decimal" Nullable="false" Precision="13" Scale="2" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="DebtId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DebtBills">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BillId_Id" Type="int" Nullable="false" />
+    <Property Name="DebtId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bills">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Barcode" Type="bigint" Nullable="false" />
+    <Property Name="IssueDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Precision="13" Scale="2" />
+    <Property Name="State" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RolId_Id" Type="int" Nullable="false" />
+    <Property Name="UserId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Statements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GenerationDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PeriodStart" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PeriodEnd" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TotalAmount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Calculations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Formula" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatementDetailSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Catogory" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Amount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Period" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PreviousPeriodAmount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TargetAmount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Variance" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="VariancePercentage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedAt" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StatementId_Id" Type="int" Nullable="false" />
+    <Property Name="PaymentId_Id" Type="int" Nullable="false" />
+    <Property Name="DebtId_Id" Type="int" Nullable="false" />
+    <Property Name="EstablishmentId_Id" Type="int" Nullable="false" />
+    <Property Name="RentId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CertificateUser">
+    <End Role="Certificate" Type="Model1.Store.CertificateSet" Multiplicity="*" />
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Certificate">
+        <PropertyRef Name="UserId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolPermissionRol">
+    <End Role="RolPermission" Type="Model1.Store.RolFormPermissionSet" Multiplicity="*" />
+    <End Role="Rol" Type="Model1.Store.Rols" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolPermission">
+        <PropertyRef Name="RolId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolPermissionPermission">
+    <End Role="RolPermission" Type="Model1.Store.RolFormPermissionSet" Multiplicity="*" />
+    <End Role="Permission" Type="Model1.Store.Permissions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolPermission">
+        <PropertyRef Name="PermissionId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModuleFormModule">
+    <End Role="ModuleForm" Type="Model1.Store.ModuleForms" Multiplicity="*" />
+    <End Role="Module" Type="Model1.Store.Modules" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleForm">
+        <PropertyRef Name="ModuleId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FormModuleForm">
+    <End Role="ModuleForm" Type="Model1.Store.ModuleForms" Multiplicity="*" />
+    <End Role="Form" Type="Model1.Store.Forms" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleForm">
+        <PropertyRef Name="FormId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DebtUser">
+    <End Role="Debt" Type="Model1.Store.Debts" Multiplicity="*" />
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Debt">
+        <PropertyRef Name="UserId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DebtEstablishment">
+    <End Role="Debt" Type="Model1.Store.Debts" Multiplicity="*" />
+    <End Role="Establishment" Type="Model1.Store.Establishments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Establishment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Debt">
+        <PropertyRef Name="EstablishmentId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstablishmentTypeEstablishment">
+    <End Role="Establishment" Type="Model1.Store.Establishments" Multiplicity="*" />
+    <End Role="TypeEstablishment" Type="Model1.Store.TypeEstablishments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TypeEstablishment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Establishment">
+        <PropertyRef Name="TypeEstablishmentId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DebtBillBill">
+    <End Role="DebtBill" Type="Model1.Store.DebtBills" Multiplicity="*" />
+    <End Role="Bill" Type="Model1.Store.Bills" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DebtBill">
+        <PropertyRef Name="BillId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DebtBillDebt">
+    <End Role="DebtBill" Type="Model1.Store.DebtBills" Multiplicity="*" />
+    <End Role="Debt" Type="Model1.Store.Debts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Debt">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DebtBill">
+        <PropertyRef Name="DebtId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DebtPayment">
+    <End Role="Payment" Type="Model1.Store.Payments" Multiplicity="*" />
+    <End Role="Debt" Type="Model1.Store.Debts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Debt">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="DebtId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserContract">
+    <End Role="Contract" Type="Model1.Store.Contracts" Multiplicity="*" />
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="UserId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RentEstablishment">
+    <End Role="Rent" Type="Model1.Store.Contracts" Multiplicity="*" />
+    <End Role="Establishment" Type="Model1.Store.Establishments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Establishment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rent">
+        <PropertyRef Name="EstablishmentId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolUserRol">
+    <End Role="RolUser" Type="Model1.Store.RolUsers" Multiplicity="*" />
+    <End Role="Rol" Type="Model1.Store.Rols" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolUser">
+        <PropertyRef Name="RolId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolUserUser">
+    <End Role="RolUser" Type="Model1.Store.RolUsers" Multiplicity="*" />
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolUser">
+        <PropertyRef Name="UserId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolFormPermissionForm">
+    <End Role="RolFormPermission" Type="Model1.Store.RolFormPermissionSet" Multiplicity="*" />
+    <End Role="Form" Type="Model1.Store.Forms" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolFormPermission">
+        <PropertyRef Name="FormId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StatementDetailStatement">
+    <End Role="StatementDetail" Type="Model1.Store.StatementDetailSet" Multiplicity="*" />
+    <End Role="Statement" Type="Model1.Store.Statements" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Statement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatementDetail">
+        <PropertyRef Name="StatementId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StatementDetailPayment">
+    <End Role="StatementDetail" Type="Model1.Store.StatementDetailSet" Multiplicity="*" />
+    <End Role="Payment" Type="Model1.Store.Payments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatementDetail">
+        <PropertyRef Name="PaymentId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StatementDetailDebt">
+    <End Role="StatementDetail" Type="Model1.Store.StatementDetailSet" Multiplicity="*" />
+    <End Role="Debt" Type="Model1.Store.Debts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Debt">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatementDetail">
+        <PropertyRef Name="DebtId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StatementDetailEstablishment">
+    <End Role="StatementDetail" Type="Model1.Store.StatementDetailSet" Multiplicity="*" />
+    <End Role="Establishment" Type="Model1.Store.Establishments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Establishment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatementDetail">
+        <PropertyRef Name="EstablishmentId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StatementDetailRent">
+    <End Role="StatementDetail" Type="Model1.Store.StatementDetailSet" Multiplicity="*" />
+    <End Role="Rent" Type="Model1.Store.Contracts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Rent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatementDetail">
+        <PropertyRef Name="RentId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+		<!-- CSDL content -->
+		<edmx:ConceptualModels>
+			<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+				<EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+					<EntitySet Name="Rols" EntityType="Model1.Rol" />
+					<EntitySet Name="Users" EntityType="Model1.User" />
+					<EntitySet Name="Permissions" EntityType="Model1.Permission" />
+					<EntitySet Name="Forms" EntityType="Model1.Form" />
+					<EntitySet Name="ModuleForms" EntityType="Model1.ModuleForm" />
+					<EntitySet Name="Modules" EntityType="Model1.Module" />
+					<EntitySet Name="Logs" EntityType="Model1.Log" />
+					<EntitySet Name="CertificateSet" EntityType="Model1.Certificate" />
+					<AssociationSet Name="CertificateUser" Association="Model1.CertificateUser">
+						<End Role="Certificate" EntitySet="CertificateSet" />
+						<End Role="User" EntitySet="Users" />
+					</AssociationSet>
+					<EntitySet Name="Paremeters" EntityType="Model1.Paremeter" />
+					<EntitySet Name="RolFormPermissionSet" EntityType="Model1.RolFormPermission" />
+					<AssociationSet Name="RolPermissionRol" Association="Model1.RolPermissionRol">
+						<End Role="RolPermission" EntitySet="RolFormPermissionSet" />
+						<End Role="Rol" EntitySet="Rols" />
+					</AssociationSet>
+					<AssociationSet Name="RolPermissionPermission" Association="Model1.RolPermissionPermission">
+						<End Role="RolPermission" EntitySet="RolFormPermissionSet" />
+						<End Role="Permission" EntitySet="Permissions" />
+					</AssociationSet>
+					<AssociationSet Name="ModuleFormModule" Association="Model1.ModuleFormModule">
+						<End Role="ModuleForm" EntitySet="ModuleForms" />
+						<End Role="Module" EntitySet="Modules" />
+					</AssociationSet>
+					<AssociationSet Name="FormModuleForm" Association="Model1.FormModuleForm">
+						<End Role="ModuleForm" EntitySet="ModuleForms" />
+						<End Role="Form" EntitySet="Forms" />
+					</AssociationSet>
+					<EntitySet Name="Establishments" EntityType="Model1.Establishment" />
+					<EntitySet Name="TypeEstablishments" EntityType="Model1.TypeEstablishment" />
+					<EntitySet Name="Debts" EntityType="Model1.Debt" />
+					<AssociationSet Name="DebtUser" Association="Model1.DebtUser">
+						<End Role="Debt" EntitySet="Debts" />
+						<End Role="User" EntitySet="Users" />
+					</AssociationSet>
+					<AssociationSet Name="DebtEstablishment" Association="Model1.DebtEstablishment">
+						<End Role="Debt" EntitySet="Debts" />
+						<End Role="Establishment" EntitySet="Establishments" />
+					</AssociationSet>
+					<EntitySet Name="Contracts" EntityType="Model1.Rent" />
+					<AssociationSet Name="EstablishmentTypeEstablishment" Association="Model1.EstablishmentTypeEstablishment">
+						<End Role="Establishment" EntitySet="Establishments" />
+						<End Role="TypeEstablishment" EntitySet="TypeEstablishments" />
+					</AssociationSet>
+					<EntitySet Name="Payments" EntityType="Model1.Payment" />
+					<EntitySet Name="DebtBills" EntityType="Model1.DebtBill" />
+					<EntitySet Name="Bills" EntityType="Model1.Bill" />
+					<AssociationSet Name="DebtBillBill" Association="Model1.DebtBillBill">
+						<End Role="DebtBill" EntitySet="DebtBills" />
+						<End Role="Bill" EntitySet="Bills" />
+					</AssociationSet>
+					<AssociationSet Name="DebtBillDebt" Association="Model1.DebtBillDebt">
+						<End Role="DebtBill" EntitySet="DebtBills" />
+						<End Role="Debt" EntitySet="Debts" />
+					</AssociationSet>
+					<AssociationSet Name="DebtPayment" Association="Model1.DebtPayment">
+						<End Role="Payment" EntitySet="Payments" />
+						<End Role="Debt" EntitySet="Debts" />
+					</AssociationSet>
+					<AssociationSet Name="UserContract" Association="Model1.UserContract">
+						<End Role="Contract" EntitySet="Contracts" />
+						<End Role="User" EntitySet="Users" />
+					</AssociationSet>
+					<AssociationSet Name="RentEstablishment" Association="Model1.RentEstablishment">
+						<End Role="Rent" EntitySet="Contracts" />
+						<End Role="Establishment" EntitySet="Establishments" />
+					</AssociationSet>
+					<EntitySet Name="RolUsers" EntityType="Model1.RolUser" />
+					<AssociationSet Name="RolUserRol" Association="Model1.RolUserRol">
+						<End Role="RolUser" EntitySet="RolUsers" />
+						<End Role="Rol" EntitySet="Rols" />
+					</AssociationSet>
+					<AssociationSet Name="RolUserUser" Association="Model1.RolUserUser">
+						<End Role="RolUser" EntitySet="RolUsers" />
+						<End Role="User" EntitySet="Users" />
+					</AssociationSet>
+					<AssociationSet Name="RolFormPermissionForm" Association="Model1.RolFormPermissionForm">
+						<End Role="RolFormPermission" EntitySet="RolFormPermissionSet" />
+						<End Role="Form" EntitySet="Forms" />
+					</AssociationSet>
+					<EntitySet Name="Statements" EntityType="Model1.Statement" />
+					<EntitySet Name="Calculations" EntityType="Model1.Calculation" />
+					<EntitySet Name="StatementDetailSet" EntityType="Model1.StatementDetail" />
+					<AssociationSet Name="StatementDetailStatement" Association="Model1.StatementDetailStatement">
+						<End Role="StatementDetail" EntitySet="StatementDetailSet" />
+						<End Role="Statement" EntitySet="Statements" />
+					</AssociationSet>
+					<AssociationSet Name="StatementDetailPayment" Association="Model1.StatementDetailPayment">
+						<End Role="StatementDetail" EntitySet="StatementDetailSet" />
+						<End Role="Payment" EntitySet="Payments" />
+					</AssociationSet>
+					<AssociationSet Name="StatementDetailDebt" Association="Model1.StatementDetailDebt">
+						<End Role="StatementDetail" EntitySet="StatementDetailSet" />
+						<End Role="Debt" EntitySet="Debts" />
+					</AssociationSet>
+					<AssociationSet Name="StatementDetailEstablishment" Association="Model1.StatementDetailEstablishment">
+						<End Role="StatementDetail" EntitySet="StatementDetailSet" />
+						<End Role="Establishment" EntitySet="Establishments" />
+					</AssociationSet>
+					<AssociationSet Name="StatementDetailRent" Association="Model1.StatementDetailRent">
+						<End Role="StatementDetail" EntitySet="StatementDetailSet" />
+						<End Role="Rent" EntitySet="Contracts" />
+					</AssociationSet>
+          <EntitySet Name="PersonSet" EntityType="Model1.Person" />
+          <AssociationSet Name="UserPerson" Association="Model1.UserPerson">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Person" EntitySet="PersonSet" />
+          </AssociationSet>
+          <EntitySet Name="Companys" EntityType="Model1.Company" />
+          <EntitySet Name="PaymentMethods" EntityType="Model1.PaymentMethod" />
+          <EntitySet Name="Notifications" EntityType="Model1.Notification" />
+				</EntityContainer>
+				<EntityType Name="Rol">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" />
+					<NavigationProperty Name="RolPermission" Relationship="Model1.RolPermissionRol" FromRole="Rol" ToRole="RolPermission" />
+					<NavigationProperty Name="RolUser" Relationship="Model1.RolUserRol" FromRole="Rol" ToRole="RolUser" />
+					<Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+				</EntityType>
+				<EntityType Name="User">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" />
+					<Property Name="Email" Type="String" Nullable="false" />
+					<Property Name="Password" Type="String" Nullable="false" />
+					<NavigationProperty Name="Certificate" Relationship="Model1.CertificateUser" FromRole="User" ToRole="Certificate" />
+					<NavigationProperty Name="Debt" Relationship="Model1.DebtUser" FromRole="User" ToRole="Debt" />
+					<NavigationProperty Name="Contract" Relationship="Model1.UserContract" FromRole="User" ToRole="Contract" />
+					<NavigationProperty Name="RolUser" Relationship="Model1.RolUserUser" FromRole="User" ToRole="RolUser" />
+					<Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PersonId" Relationship="Model1.UserPerson" FromRole="User" ToRole="Person" />
+				</EntityType>
+				<EntityType Name="Permission">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" />
+					<Property Name="Description" Type="String" Nullable="false" />
+					<NavigationProperty Name="RolPermission" Relationship="Model1.RolPermissionPermission" FromRole="Permission" ToRole="RolPermission" />
+					<Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+				</EntityType>
+				<EntityType Name="Form">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" />
+					<Property Name="Description" Type="String" Nullable="false" />
+					<NavigationProperty Name="ModuleForm" Relationship="Model1.FormModuleForm" FromRole="Form" ToRole="ModuleForm" />
+					<NavigationProperty Name="RolFormPermission" Relationship="Model1.RolFormPermissionForm" FromRole="Form" ToRole="RolFormPermission" />
+					<Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+				</EntityType>
+				<EntityType Name="ModuleForm">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<NavigationProperty Name="ModuleId" Relationship="Model1.ModuleFormModule" FromRole="ModuleForm" ToRole="Module" />
+					<NavigationProperty Name="FormId" Relationship="Model1.FormModuleForm" FromRole="ModuleForm" ToRole="Form" />
+				</EntityType>
+				<EntityType Name="Module">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" />
+					<Property Name="Description" Type="String" Nullable="false" />
+					<Property Name="Code" Type="String" Nullable="false" />
+					<NavigationProperty Name="ModuleForm" Relationship="Model1.ModuleFormModule" FromRole="Module" ToRole="ModuleForm" />
+					<Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+				</EntityType>
+				<EntityType Name="Log">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="TableName" Type="String" Nullable="false" />
+					<Property Name="PropietyName" Type="String" Nullable="false" />
+					<Property Name="Action" Type="String" Nullable="false" />
+					<Property Name="TimeStamp" Type="String" Nullable="false" />
+					<Property Name="UserId" Type="String" Nullable="false" />
+					<Property Name="OldValue" Type="String" Nullable="false" />
+					<Property Name="NewValue" Type="String" Nullable="false" />
+				</EntityType>
+				<EntityType Name="Certificate">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="TypeCertificate" Type="String" Nullable="false" />
+					<Property Name="IssueDate" Type="DateTime" Nullable="false" />
+					<Property Name="ExpirationDate" Type="DateTime" Nullable="false" />
+					<NavigationProperty Name="UserId" Relationship="Model1.CertificateUser" FromRole="Certificate" ToRole="User" />
+				</EntityType>
+				<Association Name="CertificateUser">
+					<End Type="Model1.Certificate" Role="Certificate" Multiplicity="*" />
+					<End Type="Model1.User" Role="User" Multiplicity="1" />
+				</Association>
+				<EntityType Name="Paremeter">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" />
+					<Property Name="Value" Type="Decimal" Nullable="false" Scale="2" Precision="15" />
+					<Property Name="Description" Type="String" Nullable="false" />
+				</EntityType>
+				<EntityType Name="RolFormPermission">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<NavigationProperty Name="RolId" Relationship="Model1.RolPermissionRol" FromRole="RolPermission" ToRole="Rol" />
+					<NavigationProperty Name="PermissionId" Relationship="Model1.RolPermissionPermission" FromRole="RolPermission" ToRole="Permission" />
+					<NavigationProperty Name="FormId" Relationship="Model1.RolFormPermissionForm" FromRole="RolFormPermission" ToRole="Form" />
+				</EntityType>
+				<Association Name="RolPermissionRol">
+					<End Type="Model1.RolFormPermission" Role="RolPermission" Multiplicity="*" />
+					<End Type="Model1.Rol" Role="Rol" Multiplicity="1" />
+				</Association>
+				<Association Name="RolPermissionPermission">
+					<End Type="Model1.RolFormPermission" Role="RolPermission" Multiplicity="*" />
+					<End Type="Model1.Permission" Role="Permission" Multiplicity="1" />
+				</Association>
+				<Association Name="ModuleFormModule">
+					<End Type="Model1.ModuleForm" Role="ModuleForm" Multiplicity="*" />
+					<End Type="Model1.Module" Role="Module" Multiplicity="1" />
+				</Association>
+				<Association Name="FormModuleForm">
+					<End Type="Model1.ModuleForm" Role="ModuleForm" Multiplicity="*" />
+					<End Type="Model1.Form" Role="Form" Multiplicity="1" />
+				</Association>
+				<EntityType Name="Establishment">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Nit" Type="Int32" Nullable="false" />
+					<Property Name="State" Type="Boolean" Nullable="false" />
+					<NavigationProperty Name="Debt" Relationship="Model1.DebtEstablishment" FromRole="Establishment" ToRole="Debt" />
+					<NavigationProperty Name="TypeEstablishmentId" Relationship="Model1.EstablishmentTypeEstablishment" FromRole="Establishment" ToRole="TypeEstablishment" />
+					<NavigationProperty Name="Rent" Relationship="Model1.RentEstablishment" FromRole="Establishment" ToRole="Rent" />
+					<Property Name="Name" Type="String" Nullable="false" />
+					<Property Name="Address" Type="String" Nullable="false" />
+					<NavigationProperty Name="StatementDetail" Relationship="Model1.StatementDetailEstablishment" FromRole="Establishment" ToRole="StatementDetail" />
+					<Property Name="IsDeleted" Type="String" Nullable="false" />
+				</EntityType>
+				<EntityType Name="TypeEstablishment">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" />
+					<Property Name="UVT" Type="Decimal" Nullable="false" Scale="2" Precision="13" />
+					<Property Name="PaymentTime" Type="String" Nullable="false" />
+					<NavigationProperty Name="Establishment" Relationship="Model1.EstablishmentTypeEstablishment" FromRole="TypeEstablishment" ToRole="Establishment" />
+				</EntityType>
+				<EntityType Name="Debt">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="DebtDate" Type="DateTime" Nullable="false" />
+					<Property Name="GrossValue" Type="Decimal" Nullable="false" Scale="2" Precision="13" />
+					<Property Name="IvaValue" Type="Decimal" Nullable="false" Scale="2" Precision="13" />
+					<Property Name="DebtTotal" Type="Decimal" Nullable="false" Scale="2" Precision="13" />
+					<NavigationProperty Name="UserId" Relationship="Model1.DebtUser" FromRole="Debt" ToRole="User" />
+					<NavigationProperty Name="EstablishmentId" Relationship="Model1.DebtEstablishment" FromRole="Debt" ToRole="Establishment" />
+					<NavigationProperty Name="DebtBill" Relationship="Model1.DebtBillDebt" FromRole="Debt" ToRole="DebtBill" />
+					<NavigationProperty Name="Payment" Relationship="Model1.DebtPayment" FromRole="Debt" ToRole="Payment" />
+					<NavigationProperty Name="StatementDetail" Relationship="Model1.StatementDetailDebt" FromRole="Debt" ToRole="StatementDetail" />
+					<Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+				</EntityType>
+				<Association Name="DebtUser">
+					<End Type="Model1.Debt" Role="Debt" Multiplicity="*" />
+					<End Type="Model1.User" Role="User" Multiplicity="1" />
+				</Association>
+				<Association Name="DebtEstablishment">
+					<End Type="Model1.Debt" Role="Debt" Multiplicity="*" />
+					<End Type="Model1.Establishment" Role="Establishment" Multiplicity="1" />
+				</Association>
+				<EntityType Name="Rent">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="ContractDate" Type="DateTime" Nullable="false" />
+					<Property Name="ExpirationDate" Type="DateTime" Nullable="false" />
+					<Property Name="SocialReason" Type="String" Nullable="false" />
+					<NavigationProperty Name="UserId" Relationship="Model1.UserContract" FromRole="Contract" ToRole="User" />
+					<Property Name="State" Type="Boolean" Nullable="false" />
+					<NavigationProperty Name="EstablishmentId" Relationship="Model1.RentEstablishment" FromRole="Rent" ToRole="Establishment" />
+					<NavigationProperty Name="StatementDetail" Relationship="Model1.StatementDetailRent" FromRole="Rent" ToRole="StatementDetail" />
+				</EntityType>
+				<Association Name="EstablishmentTypeEstablishment">
+					<End Type="Model1.Establishment" Role="Establishment" Multiplicity="*" />
+					<End Type="Model1.TypeEstablishment" Role="TypeEstablishment" Multiplicity="1" />
+				</Association>
+				<EntityType Name="Payment">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="PaymentDate" Type="DateTime" Nullable="false" />
+					<Property Name="AmountPaid" Type="Decimal" Nullable="false" Scale="2" Precision="13" />
+					<Property Name="State" Type="Boolean" Nullable="false" />
+					<NavigationProperty Name="DebtId" Relationship="Model1.DebtPayment" FromRole="Payment" ToRole="Debt" />
+					<NavigationProperty Name="StatementDetail" Relationship="Model1.StatementDetailPayment" FromRole="Payment" ToRole="StatementDetail" />
+				</EntityType>
+				<EntityType Name="DebtBill">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<NavigationProperty Name="BillId" Relationship="Model1.DebtBillBill" FromRole="DebtBill" ToRole="Bill" />
+					<NavigationProperty Name="DebtId" Relationship="Model1.DebtBillDebt" FromRole="DebtBill" ToRole="Debt" />
+				</EntityType>
+				<EntityType Name="Bill">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Barcode" Type="Int64" Nullable="false" />
+					<Property Name="IssueDate" Type="DateTime" Nullable="false" />
+					<Property Name="ExpirationDate" Type="DateTime" Nullable="false" />
+					<Property Name="Amount" Type="Decimal" Nullable="false" Scale="2" Precision="13" />
+					<Property Name="State" Type="Boolean" Nullable="false" />
+					<NavigationProperty Name="DebtBill" Relationship="Model1.DebtBillBill" FromRole="Bill" ToRole="DebtBill" />
+				</EntityType>
+				<Association Name="DebtBillBill">
+					<End Type="Model1.DebtBill" Role="DebtBill" Multiplicity="*" />
+					<End Type="Model1.Bill" Role="Bill" Multiplicity="1" />
+				</Association>
+				<Association Name="DebtBillDebt">
+					<End Type="Model1.DebtBill" Role="DebtBill" Multiplicity="*" />
+					<End Type="Model1.Debt" Role="Debt" Multiplicity="1" />
+				</Association>
+				<Association Name="DebtPayment">
+					<End Type="Model1.Payment" Role="Payment" Multiplicity="*" />
+					<End Type="Model1.Debt" Role="Debt" Multiplicity="1" />
+				</Association>
+				<Association Name="UserContract">
+					<End Type="Model1.Rent" Role="Contract" Multiplicity="*" />
+					<End Type="Model1.User" Role="User" Multiplicity="1" />
+				</Association>
+				<Association Name="RentEstablishment">
+					<End Type="Model1.Rent" Role="Rent" Multiplicity="*" />
+					<End Type="Model1.Establishment" Role="Establishment" Multiplicity="1" />
+				</Association>
+				<EntityType Name="RolUser">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<NavigationProperty Name="RolId" Relationship="Model1.RolUserRol" FromRole="RolUser" ToRole="Rol" />
+					<NavigationProperty Name="UserId" Relationship="Model1.RolUserUser" FromRole="RolUser" ToRole="User" />
+				</EntityType>
+				<Association Name="RolUserRol">
+					<End Type="Model1.RolUser" Role="RolUser" Multiplicity="*" />
+					<End Type="Model1.Rol" Role="Rol" Multiplicity="1" />
+				</Association>
+				<Association Name="RolUserUser">
+					<End Type="Model1.RolUser" Role="RolUser" Multiplicity="*" />
+					<End Type="Model1.User" Role="User" Multiplicity="1" />
+				</Association>
+				<Association Name="RolFormPermissionForm">
+					<End Type="Model1.RolFormPermission" Role="RolFormPermission" Multiplicity="*" />
+					<End Type="Model1.Form" Role="Form" Multiplicity="1" />
+				</Association>
+				<EntityType Name="Statement">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Type" Type="String" Nullable="false" />
+					<Property Name="Title" Type="String" Nullable="false" />
+					<Property Name="Description" Type="String" Nullable="false" />
+					<Property Name="GenerationDate" Type="String" Nullable="false" />
+					<Property Name="PeriodStart" Type="String" Nullable="false" />
+					<Property Name="PeriodEnd" Type="String" Nullable="false" />
+					<Property Name="TotalAmount" Type="String" Nullable="false" />
+					<NavigationProperty Name="StatementDetail" Relationship="Model1.StatementDetailStatement" FromRole="Statement" ToRole="StatementDetail" />
+					<Property Name="IsDeleted" Type="String" Nullable="false" />
+				</EntityType>
+				<EntityType Name="Calculation">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Type" Type="String" Nullable="false" />
+					<Property Name="Formula" Type="String" Nullable="false" />
+					<Property Name="Description" Type="String" Nullable="false" />
+				</EntityType>
+				<EntityType Name="StatementDetail">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Catogory" Type="String" Nullable="false" />
+					<Property Name="ItemName" Type="String" Nullable="false" />
+					<Property Name="Amount" Type="String" Nullable="false" />
+					<Property Name="Period" Type="String" Nullable="false" />
+					<Property Name="PreviousPeriodAmount" Type="String" Nullable="false" />
+					<Property Name="TargetAmount" Type="String" Nullable="false" />
+					<Property Name="Variance" Type="String" Nullable="false" />
+					<Property Name="VariancePercentage" Type="String" Nullable="false" />
+					<Property Name="CreatedAt" Type="String" Nullable="false" />
+					<NavigationProperty Name="StatementId" Relationship="Model1.StatementDetailStatement" FromRole="StatementDetail" ToRole="Statement" />
+					<NavigationProperty Name="PaymentId" Relationship="Model1.StatementDetailPayment" FromRole="StatementDetail" ToRole="Payment" />
+					<NavigationProperty Name="DebtId" Relationship="Model1.StatementDetailDebt" FromRole="StatementDetail" ToRole="Debt" />
+					<NavigationProperty Name="EstablishmentId" Relationship="Model1.StatementDetailEstablishment" FromRole="StatementDetail" ToRole="Establishment" />
+					<NavigationProperty Name="RentId" Relationship="Model1.StatementDetailRent" FromRole="StatementDetail" ToRole="Rent" />
+				</EntityType>
+				<Association Name="StatementDetailStatement">
+					<End Type="Model1.StatementDetail" Role="StatementDetail" Multiplicity="*" />
+					<End Type="Model1.Statement" Role="Statement" Multiplicity="1" />
+				</Association>
+				<Association Name="StatementDetailPayment">
+					<End Type="Model1.StatementDetail" Role="StatementDetail" Multiplicity="*" />
+					<End Type="Model1.Payment" Role="Payment" Multiplicity="1" />
+				</Association>
+				<Association Name="StatementDetailDebt">
+					<End Type="Model1.StatementDetail" Role="StatementDetail" Multiplicity="*" />
+					<End Type="Model1.Debt" Role="Debt" Multiplicity="1" />
+				</Association>
+				<Association Name="StatementDetailEstablishment">
+					<End Type="Model1.StatementDetail" Role="StatementDetail" Multiplicity="*" />
+					<End Type="Model1.Establishment" Role="Establishment" Multiplicity="1" />
+				</Association>
+				<Association Name="StatementDetailRent">
+					<End Type="Model1.StatementDetail" Role="StatementDetail" Multiplicity="*" />
+					<End Type="Model1.Rent" Role="Rent" Multiplicity="1" />
+				</Association>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="IdentificationType" Type="String" Nullable="false" />
+          <Property Name="Identification" Type="String" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Model1.UserPerson" FromRole="Person" ToRole="User" />
+        </EntityType>
+        <Association Name="UserPerson">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.Person" Role="Person" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="ContactInfo" Type="String" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="CompanyId" Type="String" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <Property Name="Fee" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Message" Type="String" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <Property Name="CreatedDate" Type="String" Nullable="false" />
+          <Property Name="ReadDate" Type="String" Nullable="false" />
+        </EntityType>
+			</Schema>
+		</edmx:ConceptualModels>
+		<!-- C-S mapping content -->
+		<edmx:Mappings>
+		<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Rol)">
+        <MappingFragment StoreEntitySet="Rols">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Permission)">
+        <MappingFragment StoreEntitySet="Permissions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forms">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Form)">
+        <MappingFragment StoreEntitySet="Forms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModuleForms">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ModuleForm)">
+        <MappingFragment StoreEntitySet="ModuleForms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Module)">
+        <MappingFragment StoreEntitySet="Modules">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Log)">
+        <MappingFragment StoreEntitySet="Logs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="PropietyName" ColumnName="PropietyName" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CertificateSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Certificate)">
+        <MappingFragment StoreEntitySet="CertificateSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeCertificate" ColumnName="TypeCertificate" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paremeters">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Paremeter)">
+        <MappingFragment StoreEntitySet="Paremeters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolFormPermissionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.RolFormPermission)">
+        <MappingFragment StoreEntitySet="RolFormPermissionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Establishments">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Establishment)">
+        <MappingFragment StoreEntitySet="Establishments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeEstablishments">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.TypeEstablishment)">
+        <MappingFragment StoreEntitySet="TypeEstablishments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UVT" ColumnName="UVT" />
+          <ScalarProperty Name="PaymentTime" ColumnName="PaymentTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Debts">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Debt)">
+        <MappingFragment StoreEntitySet="Debts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DebtDate" ColumnName="DebtDate" />
+          <ScalarProperty Name="GrossValue" ColumnName="GrossValue" />
+          <ScalarProperty Name="IvaValue" ColumnName="IvaValue" />
+          <ScalarProperty Name="DebtTotal" ColumnName="DebtTotal" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contracts">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Rent)">
+        <MappingFragment StoreEntitySet="Contracts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractDate" ColumnName="ContractDate" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="SocialReason" ColumnName="SocialReason" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Payment)">
+        <MappingFragment StoreEntitySet="Payments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DebtBills">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.DebtBill)">
+        <MappingFragment StoreEntitySet="DebtBills">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Bill)">
+        <MappingFragment StoreEntitySet="Bills">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.RolUser)">
+        <MappingFragment StoreEntitySet="RolUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Statements">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Statement)">
+        <MappingFragment StoreEntitySet="Statements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="GenerationDate" ColumnName="GenerationDate" />
+          <ScalarProperty Name="PeriodStart" ColumnName="PeriodStart" />
+          <ScalarProperty Name="PeriodEnd" ColumnName="PeriodEnd" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calculations">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Calculation)">
+        <MappingFragment StoreEntitySet="Calculations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Formula" ColumnName="Formula" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatementDetailSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.StatementDetail)">
+        <MappingFragment StoreEntitySet="StatementDetailSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Catogory" ColumnName="Catogory" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="PreviousPeriodAmount" ColumnName="PreviousPeriodAmount" />
+          <ScalarProperty Name="TargetAmount" ColumnName="TargetAmount" />
+          <ScalarProperty Name="Variance" ColumnName="Variance" />
+          <ScalarProperty Name="VariancePercentage" ColumnName="VariancePercentage" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CertificateUser" TypeName="Model1.CertificateUser" StoreEntitySet="CertificateSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="UserId_Id" />
+      </EndProperty>
+      <EndProperty Name="Certificate">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RolPermissionRol" TypeName="Model1.RolPermissionRol" StoreEntitySet="RolFormPermissionSet">
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="Id" ColumnName="RolId_Id" />
+      </EndProperty>
+      <EndProperty Name="RolPermission">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RolPermissionPermission" TypeName="Model1.RolPermissionPermission" StoreEntitySet="RolFormPermissionSet">
+      <EndProperty Name="Permission">
+        <ScalarProperty Name="Id" ColumnName="PermissionId_Id" />
+      </EndProperty>
+      <EndProperty Name="RolPermission">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ModuleFormModule" TypeName="Model1.ModuleFormModule" StoreEntitySet="ModuleForms">
+      <EndProperty Name="Module">
+        <ScalarProperty Name="Id" ColumnName="ModuleId_Id" />
+      </EndProperty>
+      <EndProperty Name="ModuleForm">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FormModuleForm" TypeName="Model1.FormModuleForm" StoreEntitySet="ModuleForms">
+      <EndProperty Name="Form">
+        <ScalarProperty Name="Id" ColumnName="FormId_Id" />
+      </EndProperty>
+      <EndProperty Name="ModuleForm">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DebtUser" TypeName="Model1.DebtUser" StoreEntitySet="Debts">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="UserId_Id" />
+      </EndProperty>
+      <EndProperty Name="Debt">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DebtEstablishment" TypeName="Model1.DebtEstablishment" StoreEntitySet="Debts">
+      <EndProperty Name="Establishment">
+        <ScalarProperty Name="Id" ColumnName="EstablishmentId_Id" />
+      </EndProperty>
+      <EndProperty Name="Debt">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EstablishmentTypeEstablishment" TypeName="Model1.EstablishmentTypeEstablishment" StoreEntitySet="Establishments">
+      <EndProperty Name="TypeEstablishment">
+        <ScalarProperty Name="Id" ColumnName="TypeEstablishmentId_Id" />
+      </EndProperty>
+      <EndProperty Name="Establishment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DebtBillBill" TypeName="Model1.DebtBillBill" StoreEntitySet="DebtBills">
+      <EndProperty Name="Bill">
+        <ScalarProperty Name="Id" ColumnName="BillId_Id" />
+      </EndProperty>
+      <EndProperty Name="DebtBill">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DebtBillDebt" TypeName="Model1.DebtBillDebt" StoreEntitySet="DebtBills">
+      <EndProperty Name="Debt">
+        <ScalarProperty Name="Id" ColumnName="DebtId_Id" />
+      </EndProperty>
+      <EndProperty Name="DebtBill">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DebtPayment" TypeName="Model1.DebtPayment" StoreEntitySet="Payments">
+      <EndProperty Name="Debt">
+        <ScalarProperty Name="Id" ColumnName="DebtId_Id" />
+      </EndProperty>
+      <EndProperty Name="Payment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserContract" TypeName="Model1.UserContract" StoreEntitySet="Contracts">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="UserId_Id" />
+      </EndProperty>
+      <EndProperty Name="Contract">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RentEstablishment" TypeName="Model1.RentEstablishment" StoreEntitySet="Contracts">
+      <EndProperty Name="Establishment">
+        <ScalarProperty Name="Id" ColumnName="EstablishmentId_Id" />
+      </EndProperty>
+      <EndProperty Name="Rent">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RolUserRol" TypeName="Model1.RolUserRol" StoreEntitySet="RolUsers">
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="Id" ColumnName="RolId_Id" />
+      </EndProperty>
+      <EndProperty Name="RolUser">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RolUserUser" TypeName="Model1.RolUserUser" StoreEntitySet="RolUsers">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="UserId_Id" />
+      </EndProperty>
+      <EndProperty Name="RolUser">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RolFormPermissionForm" TypeName="Model1.RolFormPermissionForm" StoreEntitySet="RolFormPermissionSet">
+      <EndProperty Name="Form">
+        <ScalarProperty Name="Id" ColumnName="FormId_Id" />
+      </EndProperty>
+      <EndProperty Name="RolFormPermission">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StatementDetailStatement" TypeName="Model1.StatementDetailStatement" StoreEntitySet="StatementDetailSet">
+      <EndProperty Name="Statement">
+        <ScalarProperty Name="Id" ColumnName="StatementId_Id" />
+      </EndProperty>
+      <EndProperty Name="StatementDetail">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StatementDetailPayment" TypeName="Model1.StatementDetailPayment" StoreEntitySet="StatementDetailSet">
+      <EndProperty Name="Payment">
+        <ScalarProperty Name="Id" ColumnName="PaymentId_Id" />
+      </EndProperty>
+      <EndProperty Name="StatementDetail">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StatementDetailDebt" TypeName="Model1.StatementDetailDebt" StoreEntitySet="StatementDetailSet">
+      <EndProperty Name="Debt">
+        <ScalarProperty Name="Id" ColumnName="DebtId_Id" />
+      </EndProperty>
+      <EndProperty Name="StatementDetail">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StatementDetailEstablishment" TypeName="Model1.StatementDetailEstablishment" StoreEntitySet="StatementDetailSet">
+      <EndProperty Name="Establishment">
+        <ScalarProperty Name="Id" ColumnName="EstablishmentId_Id" />
+      </EndProperty>
+      <EndProperty Name="StatementDetail">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StatementDetailRent" TypeName="Model1.StatementDetailRent" StoreEntitySet="StatementDetailSet">
+      <EndProperty Name="Rent">
+        <ScalarProperty Name="Id" ColumnName="RentId_Id" />
+      </EndProperty>
+      <EndProperty Name="StatementDetail">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+	</edmx:Runtime>
+	<!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+	<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+		<edmx:Connection>
+			<DesignerInfoPropertySet>
+				<DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+			</DesignerInfoPropertySet>
+		</edmx:Connection>
+		<edmx:Options>
+			<DesignerInfoPropertySet>
+				<DesignerProperty Name="ValidateOnBuild" Value="true" />
+				<DesignerProperty Name="EnablePluralization" Value="False" />
+				<DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+			</DesignerInfoPropertySet>
+		</edmx:Options>
+		<!-- Diagram content (shape and connector positions) -->
+		<edmx:Diagrams>
+		</edmx:Diagrams>
+	</edmx:Designer>
+</edmx:Edmx>
